@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxentis - Luxury Redefined</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            height: 100vh;  /* Make the body take up the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;  /* Center content horizontally */
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #111;
+            padding: 20px 0;
+            width: 100%;
+            position: relative;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            display: flex;
+            flex-direction: column;  /* Stack the logo and caption vertically */
+            align-items: center;     /* Center them horizontally */
+            justify-content: center;
+            margin-bottom: 10px;  /* Space between logo and navigation */
+        }
+
+        nav .logo img {
+            width: 200px;  /* Adjust logo size */
+            height: auto;
+        }
+
+        nav .logo p {
+            font-size: 4.5em;  /* Adjust font size to make it bold and prominent */
+            font-family: 'Times New Roman', serif;  /* A classic, luxurious font */
+            font-weight: bold;  /* Make the font bold */
+            font-style: italic;  /* Add an italic effect for elegance */
+            color: #ffd700;  /* Gold color to reflect luxury */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Adding a subtle shadow for depth */
+            letter-spacing: 2px;  /* Slightly space out the letters to give it a luxurious look */
+            margin-top: 15px;  /* Add a little spacing between the logo and text */
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffd700;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Main Content Section */
+        .content {
+            padding: 40px 20px;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Georgia', serif;
+            color: #ffd700;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-item h3 {
+            font-size: 1.8em;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 1em;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Logo Section -->
+    <div class="logo">
+        <!-- Insert Image for Logo -->
+        <img src="C:/Users/70322200003/Downloads/LUXENTIS Logo-1.png" alt="Luxentis Logo" />
+        <p>Luxury Redefined</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header id="home">
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <h2 id="about">Welcome to Luxentis</h2>
+        <p class="intro">At Luxentis, we don't just create cars; we create experiences that redefine the meaning of luxury. Discover a world where elegance meets innovation, and where every drive feels like an extraordinary journey.</p>
+       
+        <div class="features" id="features">
+            <div class="feature-item">
+                <h3>Innovative Design</h3>
+                <p>Every Luxentis vehicle is crafted with precision and elegance, featuring cutting-edge designs that blend sophistication and style. From aerodynamic contours to luxurious interiors, every detail is meticulously designed.</p>
+            </div>
+           
+            <div class="feature-item">
+                <h3>Performance</h3>
+                <p>Experience unmatched power and performance with our high-performance engines, optimized for both speed and efficiency. Each car delivers an exhilarating driving experience, whether on the road or at high speeds.</p>
+            </div>
+           
+            <div class="feature-item">
+                <h3>Exclusive Materials</h3>
+                <p>We use only the finest materials in our vehicles, from premium leather upholstery to state-of-the-art technologies. Luxentis cars are a testament to the art of fine craftsmanship.</p>
+            </div>
+           
+            <div class="feature-item">
+                <h3>Unrivaled Comfort</h3>
+                <p>Luxentis cars are designed to provide the utmost comfort for the driver and passengers. With advanced climate control systems, ergonomic seating, and soundproof cabins, every ride is a luxury in itself.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <p>&copy; 2025 Luxentis. All rights reserved.</p>
+        <p>Visit our showroom or <a href="contact.html">Contact Us</a> for more information.</p>
+    </footer>
+
+</body>
+</html>
