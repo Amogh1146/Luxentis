@@ -18,10 +18,10 @@
             background-color: #000;
             color: #fff;
             line-height: 1.6;
-            height: 100vh;  /* Make the body take up the full viewport height */
+            height: auto;  /* Allow for scrollable content */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Start from the top */
             align-items: center;  /* Center content horizontally */
             text-align: center;
         }
@@ -104,6 +104,49 @@
             margin-bottom: 30px;
         }
 
+        /* Image Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Limit the maximum width of the carousel */
+            height: 400px; /* Set a fixed height for the carousel */
+            overflow: hidden;
+            margin: 40px auto; /* Adjust margin for top and bottom spacing */
+            transform: translateY(-20px); /* Move it up slightly */
+        }
+
+        .image-wrapper {
+            display: flex;
+            transition: transform 0.5s ease; /* Smooth sliding effect */
+            width: calc(800px * 5); /* Each image width is 800px, so the total width is image width times the number of images (5 images) */
+        }
+
+        .image-wrapper img {
+            width: 800px; /* Image width */
+            height: 400px; /* Set fixed height for images */
+            object-fit: cover; /* Ensures the image covers its area */
+        }
+
+        button {
+            position: absolute;
+            top: 30%; /* Moved buttons slightly up */
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        #prevBtn {
+            left: 10px;
+        }
+
+        #nextBtn {
+            right: 10px;
+        }
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -156,8 +199,7 @@
 
     <!-- Logo Section -->
     <div class="logo">
-        <!-- Insert Image for Logo -->
-        <img src="C:/Users/70322200003/Downloads/LUXENTIS Logo-1.png" alt="Luxentis Logo" />
+        <img src="LUXENTIS Logo-1.png" alt="Luxentis Logo" />
         <p>Luxury Redefined</p>
     </div>
 
@@ -179,23 +221,36 @@
     <div class="content">
         <h2 id="about">Welcome to Luxentis</h2>
         <p class="intro">At Luxentis, we don't just create cars; we create experiences that redefine the meaning of luxury. Discover a world where elegance meets innovation, and where every drive feels like an extraordinary journey.</p>
-       
+
+        <!-- Image Carousel -->
+        <div class="carousel-container">
+            <div class="image-wrapper">
+                <img src="super-car-1.png" alt="Image 1">
+                <img src="super-car-2.png" alt="Image 2">
+                <img src="super-car-3.png" alt="Image 3">
+                <img src="super-car-4.png" alt="Image 4">
+                <img src="super-car-5.jpg" alt="Image 5"> <!-- Repeated image for seamless loop -->
+            </div>
+            <button id="prevBtn">❮</button>
+            <button id="nextBtn">❯</button>
+        </div>
+
         <div class="features" id="features">
             <div class="feature-item">
                 <h3>Innovative Design</h3>
                 <p>Every Luxentis vehicle is crafted with precision and elegance, featuring cutting-edge designs that blend sophistication and style. From aerodynamic contours to luxurious interiors, every detail is meticulously designed.</p>
             </div>
-           
+
             <div class="feature-item">
                 <h3>Performance</h3>
                 <p>Experience unmatched power and performance with our high-performance engines, optimized for both speed and efficiency. Each car delivers an exhilarating driving experience, whether on the road or at high speeds.</p>
             </div>
-           
+
             <div class="feature-item">
                 <h3>Exclusive Materials</h3>
                 <p>We use only the finest materials in our vehicles, from premium leather upholstery to state-of-the-art technologies. Luxentis cars are a testament to the art of fine craftsmanship.</p>
             </div>
-           
+
             <div class="feature-item">
                 <h3>Unrivaled Comfort</h3>
                 <p>Luxentis cars are designed to provide the utmost comfort for the driver and passengers. With advanced climate control systems, ergonomic seating, and soundproof cabins, every ride is a luxury in itself.</p>
@@ -205,9 +260,53 @@
 
     <!-- Footer Section -->
     <footer id="contact">
-        <p>&copy; 2025 Luxentis. All rights reserved.</p>
+        <p>© 2025 Luxentis. All rights reserved.</p>
         <p>Visit our showroom or <a href="contact.html">Contact Us</a> for more information.</p>
     </footer>
+
+    <script>
+        const wrapper = document.querySelector('.image-wrapper');
+        const images = document.querySelectorAll('.image-wrapper img');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        let currentIndex = 0;
+        let interval;
+
+        function updateCarousel(index) {
+            const offset = -(index * 800); // Image width
+            wrapper.style.transform = `translateX(${offset}px)`;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel(currentIndex);
+        }
+
+        // Set the interval to auto-scroll
+        function startCarousel() {
+            interval = setInterval(nextImage, 3000); // Change image every 3 seconds
+        }
+
+        // Start the carousel on page load
+        startCarousel();
+
+        // Manual controls
+        nextBtn.addEventListener('click', () => {
+            clearInterval(interval); // Stop auto-scroll when button is clicked
+            nextImage();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            clearInterval(interval); // Stop auto-scroll when button is clicked
+            prevImage();
+        });
+    </script>
 
 </body>
 </html>
