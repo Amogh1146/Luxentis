@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxentis Registration</title>
+    <script>
+        // Function to generate a random CAPTCHA
+        function generateCaptcha() {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var captchaLength = 6; // Length of the CAPTCHA string
+            var captcha = "";
+            for (var i = 0; i < captchaLength; i++) {
+                var randomIndex = Math.floor(Math.random() * chars.length);
+                captcha += chars[randomIndex];
+            }
+            document.getElementById("captchaDisplay").textContent = captcha; // Show CAPTCHA on the page
+            document.getElementById("captchaValue").value = captcha; // Store CAPTCHA for validation
+        }
+
+        // Function to validate the form
+        function validateForm() {
+            var name = document.myForm.fullName.value;
+            var phone = document.myForm.phone.value;
+            var username = document.myForm.username.value;
+            var password = document.myForm.password.value;
+            var birthDate = document.myForm.birthDate.value;
+            var enteredCaptcha = document.myForm.captcha.value;
+            var generatedCaptcha = document.myForm.captchaValue.value;
+
+            // Full Name validation
+            if (name == null || name == "") {
+                alert("Full Name is required.");
+                return false;
+            }
+
+            // Phone Number validation
+            var phonePattern = /^[0-9]{10}$/;
+            if (!phone.match(phonePattern)) {
+                alert("Please enter a valid phone number (10 digits).");
+                return false;
+            }
+
+            // Username validation
+            if (username == null || username == "") {
+                alert("Username is required.");
+                return false;
+            }
+
+            // Password validation (at least 6 characters)
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // Birthdate validation (must be entered)
+            if (birthDate == null || birthDate == "") {
+                alert("Birthdate is required.");
+                return false;
+            }
+
+            // CAPTCHA validation
+            if (enteredCaptcha != generatedCaptcha) {
+                alert("The CAPTCHA you entered is incorrect.");
+                return false;
+            }
+
+            return true; // If all validations pass, return true
+        }
+
+        // Call generateCaptcha function when the page loads
+        window.onload = function() {
+            generateCaptcha();
+        };
+    </script>
+</head>
+<body>
+
+    <h2>Luxentis Registration Form</h2>
+    <form name="myForm" onsubmit="return validateForm()">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <label for="birthDate">Birthdate:</label>
+        <input type="date" id="birthDate" name="birthDate"><br><br>
+
+        <label for="captcha">Enter CAPTCHA: </label>
+        <span id="captchaDisplay" style="font-weight: bold;"></span><br><br>
+        <input type="text" id="captcha" name="captcha"><br><br>
+
+        <!-- Hidden field to store the generated CAPTCHA value -->
+        <input type="hidden" id="captchaValue" name="captchaValue">
+
+        <input type="submit" value="Register">
+    </form>
+
+</body>
+</html>
