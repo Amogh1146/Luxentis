@@ -37,26 +37,26 @@
 
         nav .logo {
             display: flex;
-            flex-direction: column;  /* Stack the logo and caption vertically */
-            align-items: center;     /* Center them horizontally */
+            flex-direction: column;  
+            align-items: center;     
             justify-content: center;
-            margin-bottom: 10px;  /* Space between logo and navigation */
+            margin-bottom: 10px;  
         }
 
         nav .logo img {
-            width: 200px;  /* Adjust logo size */
+            width: 200px;  
             height: auto;
         }
 
         nav .logo p {
-            font-size: 4.5em;  /* Adjust font size to make it bold and prominent */
-            font-family: 'Times New Roman', serif;  /* A classic, luxurious font */
-            font-weight: bold;  /* Make the font bold */
-            font-style: italic;  /* Add an italic effect for elegance */
-            color: #ffd700;  /* Gold color to reflect luxury */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Adding a subtle shadow for depth */
-            letter-spacing: 2px;  /* Slightly space out the letters to give it a luxurious look */
-            margin-top: 15px;  /* Add a little spacing between the logo and text */
+            font-size: 4.5em;  
+            font-family: 'Times New Roman', serif;  
+            font-weight: bold;  
+            font-style: italic;  
+            color: #ffd700;  
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+            letter-spacing: 2px;  
+            margin-top: 15px;  
         }
 
         nav ul {
@@ -108,28 +108,28 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* Limit the maximum width of the carousel */
-            height: 400px; /* Set a fixed height for the carousel */
+            max-width: 800px; 
+            height: 400px; 
             overflow: hidden;
-            margin: 40px auto; /* Adjust margin for top and bottom spacing */
-            transform: translateY(-20px); /* Move it up slightly */
+            margin: 40px auto; 
+            transform: translateY(-20px); 
         }
 
         .image-wrapper {
             display: flex;
-            transition: transform 0.5s ease; /* Smooth sliding effect */
-            width: calc(800px * 5); /* Each image width is 800px, so the total width is image width times the number of images (5 images) */
+            transition: transform 0.5s ease;
+            width: calc(800px * 5); 
         }
 
         .image-wrapper img {
-            width: 800px; /* Image width */
-            height: 400px; /* Set fixed height for images */
-            object-fit: cover; /* Ensures the image covers its area */
+            width: 800px; 
+            height: 400px; 
+            object-fit: cover; 
         }
 
         button {
             position: absolute;
-            top: 30%; /* Moved buttons slightly up */
+            top: 30%; 
             transform: translateY(-50%);
             background-color: rgba(255, 255, 255, 0.7);
             border: none;
@@ -193,6 +193,25 @@
             text-decoration: underline;
         }
 
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: #ffd700;
+        }
+
+        .footer-section {
+            margin: 20px 0;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
     </style>
 </head>
 <body>
@@ -229,7 +248,7 @@
                 <img src="super-car-2.png" alt="Image 2">
                 <img src="super-car-3.png" alt="Image 3">
                 <img src="super-car-4.png" alt="Image 4">
-                <img src="super-car-5.jpg" alt="Image 5"> <!-- Repeated image for seamless loop -->
+                <img src="super-car-5.jpg" alt="Image 5">
             </div>
             <button id="prevBtn">❮</button>
             <button id="nextBtn">❯</button>
@@ -260,8 +279,21 @@
 
     <!-- Footer Section -->
     <footer id="contact">
-        <p>© 2025 Luxentis. All rights reserved.</p>
-        <p>Visit our showroom or <a href="contact.html">Contact Us</a> for more information.</p>
+        <div class="footer-section">
+            <p>© 2025 Luxentis. All rights reserved.</p>
+            <p>Visit our showroom or <a href="contact.html">Contact Us</a> for more information.</p>
+        </div>
+        <div class="footer-section contact-info">
+            <p><strong>Contact Us:</strong></p>
+            <p>Email: info@luxentis.com | Phone: +1 234 567 890</p>
+            <p>Address: 123 Luxury Lane, City, Country</p>
+        </div>
+        <div class="footer-section social-icons">
+            <a href="https://www.facebook.com" target="_blank">📘</a>
+            <a href="https://www.twitter.com" target="_blank">🐦</a>
+            <a href="https://www.instagram.com" target="_blank">📷</a>
+            <a href="https://www.linkedin.com" target="_blank">🔗</a>
+        </div>
     </footer>
 
     <script>
@@ -274,7 +306,7 @@
         let interval;
 
         function updateCarousel(index) {
-            const offset = -(index * 800); // Image width
+            const offset = -(index * 800);
             wrapper.style.transform = `translateX(${offset}px)`;
         }
 
@@ -290,7 +322,7 @@
 
         // Set the interval to auto-scroll
         function startCarousel() {
-            interval = setInterval(nextImage, 3000); // Change image every 3 seconds
+            interval = setInterval(nextImage, 3000);
         }
 
         // Start the carousel on page load
@@ -298,12 +330,12 @@
 
         // Manual controls
         nextBtn.addEventListener('click', () => {
-            clearInterval(interval); // Stop auto-scroll when button is clicked
+            clearInterval(interval);
             nextImage();
         });
 
         prevBtn.addEventListener('click', () => {
-            clearInterval(interval); // Stop auto-scroll when button is clicked
+            clearInterval(interval);
             prevImage();
         });
     </script>
