@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxentis - Customer Reviews</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .review-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in;
+        }
+        h2, h3 {
+            text-align: center;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 0;
+        }
+        .review {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+            transition: box-shadow 0.3s ease;
+        }
+        .review:hover {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        .review:nth-child(1) { animation-delay: 0.2s; }
+        .review:nth-child(2) { animation-delay: 0.4s; }
+        .review:nth-child(3) { animation-delay: 0.6s; }
+        .review:nth-child(4) { animation-delay: 0.8s; }
+        .review:nth-child(5) { animation-delay: 1.0s; }
+        .review:nth-child(6) { animation-delay: 1.2s; }
+        .review:nth-child(7) { animation-delay: 1.4s; }
+        .review:last-child {
+            border-bottom: none;
+        }
+        .stars {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+        .review p {
+            margin: 5px 0;
+            font-size: 1em;
+            text-align: left;
+        }
+        .review strong {
+            color: #fff;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+        .review-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .review-form input, .review-form textarea, .review-form select{
+            width: 100%;
+            max-width: 500px;
+            padding: 12px;
+            margin: 10px auto;
+            border: 1px solid #ffd700;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1em;
+            display: block;
+            transition: all 0.3s;
+        }
+        .review-form select option{
+            background-color: #1a1a1a;
+            color: #ffd700;
+        }
+        .review-form input:focus, .review-form textarea:focus, .review-form select:focus {
+            outline: none;
+            border-color: #fff;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .review-form textarea {
+            height: 100px;
+            resize: none;
+        }
+        .review-form button {
+            background: #ffd700;
+            color: #1a1a1a;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .review-form button:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="review-container">
+        <!-- Customer Reviews Heading -->
+        <h2>Luxentis - Customer Reviews</h2>
+       
+        <div class="review">
+            <p><strong>Aarav Sharma</strong></p>
+            <p class="stars">★★★★★</p>
+            <p>Absolutely stunning car! The sleek design and performance are unmatched. Worth every penny.</p>
+        </div>
+       
+        <div class="review">
+            <p><strong>Emma Watson</strong></p>
+            <p class="stars">★★★★☆</p>
+            <p>Fantastic ride, but the delivery took longer than expected. Still, the luxury is unreal!</p>
+        </div>
+
+        <div class="review">
+            <p><strong>Rahul Kapoor</strong></p>
+            <p class="stars">★★★☆☆</p>
+            <p>Good car, but the fuel efficiency could be better for this price range.</p>
+        </div>
+
+        <div class="review">
+            <p><strong>Sophia Müller</strong></p>
+            <p class="stars">★★★★★</p>
+            <p>A masterpiece on wheels! The interiors are like a private jet. Highly recommend.</p>
+        </div>
+
+        <div class="review">
+            <p><strong>Priya Patel</strong></p>
+            <p class="stars">★★★★☆</p>
+            <p>Loved the experience, but the tech interface needs a bit more user-friendliness.</p>
+        </div>
+
+        <div class="review">
+            <p><strong>Liam O’Connor</strong></p>
+            <p class="stars">★★★★★</p>
+            <p>Perfection in every detail. Driving this feels like a dream come true!</p>
+        </div>
+
+        <div class="review">
+            <p><strong>Neha Gupta</strong></p>
+            <p class="stars">★★★☆☆</p>
+            <p>Great aesthetics, but customer service could improve. Had issues with scheduling maintenance.</p>
+        </div>
+
+        <!-- Add Your Review Heading -->
+        <h3>Add Your Review</h3>
+        <form class="review-form" id="reviewForm">
+            <input type="text" id="nameInput" placeholder="Your Name" required>
+            <select id="ratingInput" required>
+                <option value="" disabled selected>Select Rating</option>
+                <option value="1">★☆☆☆☆ (1 Star)</option>
+                <option value="2">★★☆☆☆ (2 Stars)</option>
+                <option value="3">★★★☆☆ (3 Stars)</option>
+                <option value="4">★★★★☆ (4 Stars)</option>
+                <option value="5">★★★★★ (5 Stars)</option>
+            </select>
+            <textarea id="reviewInput" placeholder="Write your review here..." required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('nameInput').value.trim();
+            const rating = parseInt(document.getElementById('ratingInput').value);
+            const reviewText = document.getElementById('reviewInput').value.trim();
+
+            if (name && rating && reviewText) {
+                // Convert rating number to stars
+                const starRating = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+                const newReview = document.createElement('div');
+                newReview.classList.add('review');
+                newReview.innerHTML = `
+                    <p><strong>${name}</strong></p>
+                    <p class="stars">${starRating}</p>
+                    <p>${reviewText}</p>
+                `;
+
+                const reviews = document.querySelectorAll('.review');
+                const lastReview = reviews[reviews.length - 1];
+                lastReview.insertAdjacentElement('afterend', newReview);
+
+                newReview.style.opacity = '0';
+                setTimeout(() => {
+                    newReview.style.animation = 'slideIn 0.5s forwards';
+                }, 10);
+
+                const allReviews = document.querySelectorAll('.review');
+                if (allReviews.length > 1) {
+                    allReviews[allReviews.length - 2].style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
+                }
+
+                this.reset();
+                alert('Thank you for your review!');
+            }
+        });
+    </script>
+</body>
+</html>
